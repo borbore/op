@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Suneee File Transfer Plugin Readme</title>
+    <style type="text/css">
+        BODY {
+            font-size : 100%;
+        }
+        BODY, TD, TH {
+            font-family : tahoma, verdana, arial, helvetica, sans-serif;
+            font-size : 0.8em;
+        }
+        H2 {
+             font-size : 10pt;
+             font-weight : bold;
+        }
+        A:hover {
+            text-decoration : none;
+        }
+        H1 {
+            font-family : tahoma, arial, helvetica, sans-serif;
+            font-size : 1.4em;
+            font-weight: bold;
+            border-bottom : 1px #ccc solid;
+            padding-bottom : 2px;
+        }
+
+        TT {
+            font-family : courier new;
+            font-weight : bold;
+            color : #060;
+        }
+        PRE {
+            font-family : courier new;
+            font-size : 100%;
+        }
+        #datatable TH {
+            color : #fff;
+            background-color : #2A448C;
+            text-align : left;
+        }
+        #datatable TD {
+            background-color : #FAF6EF;
+        }
+        #datatable .name {
+            background-color : #DCE2F5;
+        }
+    </style>
+</head>
+<body>
+
+<h1>
+Suneee File Transfer Plugin Readme
+</h1>
+
+<h2>Overview</h2>
+
+<p>
+	<div style="font-weight: bold;">文件传输服务。</div>
+	<div>注意：需要在控制台配置系统属性，用于指定上传下载Http请求地址</div><br/>
+	<div>com.suneee.filetransfer.uploadURL = http://<font style="colore:#f00;"> (openfire_ip:openfire_port ) </font>/plugins/suneeefiletransfer/upload/</div>
+	<div>com.suneee.filetransfer.downloadURL = http://<font style="colore:#f00;"> (openfire_ip:openfire_port ) </font>/plugins/suneeefiletransfer/download/</div>
+	<br/>
+	<br/>
+	<div>注意：需要在控制台配置系统属性，用于指定图片缩略图的大小：默认为 120*120</div><br/>
+	<div>com.suneee.filetransfer.zipImageWidth = 120</div>
+	<div>com.suneee.filetransfer.zipImageHeight = 120</div>
+</p>
+
+<h2>Installation</h2>
+
+<p>
+Copy suneeeFileTransfer.jar into the plugins directory of your Openfire installation.
+The plugin will then be automatically deployed. To upgrade to a new version,
+copy the new suneeeFileTransfer.jar file over the existing file.
+</p>
+
+<p><i>Note: Installations using the spark manager plugin will need to uninstall the plugin before installing
+this new plugin.
+</i></p>
+
+
+
+</body>
+</html>
