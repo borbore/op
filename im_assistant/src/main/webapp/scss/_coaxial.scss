@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+//免费时长配置
+.free-con {
+  font-size: 16px;
+  padding: 20px 0 0 20px;
+  min-height: 300px;
+}
+.enter-table {
+  tr td:nth-of-type(1) {
+    text-align: left;
+    padding-left: 12px;
+  }
+}
+//企业管理-新增企业
+.add-enter {
+  padding: 12px 0 10px 0;
+  li {
+    margin-bottom: 15px;
+    line-height: 42px;
+    &.checkbox {
+      line-height: 26px;
+    }
+    .lab {
+      display: inline-block;
+      height: 42px;
+      width: 88px;
+      text-align: right;
+      font-size: 16px;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+    input[type=text],input[type=password] {
+      height: 22px;
+      line-height: 22px;
+      background: #f8f8f8;
+      width: 228px;
+    }
+    .tip {
+      margin-left: 14px;
+      color: #999;
+      font-size: 14px;
+    }
+    textarea {
+      width: 228px;
+      background: #f8f8f8;
+      vertical-align: top;
+      resize: none;
+      height: 70px;
+    }
+    .upimg {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: inline-block;
+      margin-right: 15px;
+      img {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e9e9e9;
+        border-radius: 4px;
+        vertical-align: middle;
+      }
+      .close {
+        color: #fff;
+        cursor: pointer;
+        font-size: 7px;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 15px;
+        background: #000;
+        filter:alpha(opacity=50);
+        -moz-opacity:0.5;
+        opacity:0.5;
+        position: absolute;
+        top: -5px;
+        right: -6px;
+      }
+    }
+    .upload {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 35px;
+      display: inline-block;
+      border: 1px solid #e9e9e9;
+      border-radius: 4px;
+      color: #999;
+      font-size: 32px;
+      vertical-align: middle;
+      background: #f8f8f8;
+    }
+  }
+}
+//平台管理-账号管理
+.add-enter .author {
+  margin-bottom: 5px;
+  .lab {
+    float: left;
+  }
+}
+.check-right {
+  float: left;
+  width: 560px;
+  border:1px solid #e9e9e9;
+  border-bottom: none;
+}
+.parent_box,.child-box {
+  border-bottom:1px solid #e9e9e9;
+  padding-left: 15px;
+  color: #666;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.parent_box {
+  background:#f8f8f8;
+  display: block;
+}
+.child-box {
+  background:#fff;
+  padding-left: 36px;
+  .checkbox {
+    margin-right:20px;
+  }
+}
+.add-enter .radio {
+  line-height: 34px;
+  font-size: 16px;
+}
+.account .radio input + i{
+  border-radius: 0;
+}
+//共轴运营管理-共轴设置
+.add-coaxial .radio {
+  font-size: 16px;
+  label {
+    width: 60px;
+  }
+}
+//共轴运营管理-新增分类
+.add-select .select {
+  .default {
+    width: 198px;
+    padding: 0px 30px 0px 10px;
+    background: #f8f8f8;
+    font-size: 16px;
+  }
+  ul {
+    width: 238px;
+    li {
+      height: 24px;
+      line-height: 24px;
+      margin-bottom: 0;
+    }
+  }
+}
+.categray {
+  .lab {
+    float: left;
+  }
+}
+.cate-rt {
+  width: 540px;
+  float: left;
+  .cate-list {
+    margin-bottom: 15px;
+    input[type=text],.upload {
+      margin-right: 15px;
+    }
+    .top {
+      width: 70px;
+      margin-right: 15px;
+      height: 28px;
+      line-height: 26px;
+      vertical-align: middle;
+      background: #f8f8f8;
+      padding: 7px;
+      border: 1px solid #e9e9e9;
+      border-radius: 3px;
+      font-size: 16px;
+      display: inline-block;
+      cursor: pointer;
+      em {
+        color: #666;
+        padding: 0 0 0 33px;
+        position: relative;
+        &:before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: "";
+          width:24px;
+          height:24px;
+          background: #f8f8f8;
+          border: 1px solid #e9e9e9;
+        }
+      }
+      &.top-cur em:before  {
+        background: $btn-action-bg url("../images/icon/icon_cur.png") no-repeat center;
+        border: 1px solid #00ccd8;
+      }
+    }
+    .delete {
+      width: 42px;
+      height: 42px;
+      vertical-align: middle;
+      background:url("../images/icon/remove.png") no-repeat;
+      background-position: 0 -42px;
+      display: inline-block;
+      &:hover {
+        background-position:0 0;
+      }
+    }
+    &:nth-last-of-type(1) {
+      margin-bottom: 5px;
+    }
+  }
+  .erro-tip {
+    display: block;
+    font-style: normal;
+    color: #e72e2e;
+  }
+  .add-cate {
+    display: block;
+    width: 82px;
+    height: 40px;
+    background: #f8f8f8;
+    text-align: center;
+    line-height: 40px;
+    color: #00ccd8;
+    font-size: 16px;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+  }
+}

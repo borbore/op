@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="G:\lib\mysql-connector-java-5.1.31.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/suneee" userId="admin" password="admin" />
+    <javaModelGenerator targetPackage="com.suneee.project.model" targetProject="im">
+    	<property name="enableSubPackages" value="true" />
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="com.suneee.project.dao.mybatis" targetProject="im">
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="com.suneee.project.dao.mybatis" targetProject="im" type="XMLMAPPER">
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    <table schema="" tableName="t_user" domainObjectName="User" >
+    </table>
+  </context>
+</generatorConfiguration>

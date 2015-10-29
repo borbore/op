@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+//checkbox
+@import "checkbox";
+@import "form";
+/**导航**/
+.tabs-nav {
+  padding-bottom: 20px;
+  li {
+    background: $btn-bg;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size:16px;
+    a { color: #fff; display: block; }
+  }
+  .active {
+    background: $btn-action-bg;
+    position: relative;
+    &:after {
+      $w: 15px;
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: -$w;
+      left: 50%;
+      bottom: -($w + 5);
+      border-left: $w solid transparent;
+      border-right: $w solid transparent;
+      border-bottom: $w solid #fff;
+    }
+  }
+}
+
+.tabs-box {
+  background: #fff;
+  padding: 15px 20px;
+  position: relative;
+  min-height: 650px;
+}
+
+/*搜索模块*/
+.search {
+  padding:15px 3px;
+  background:$bulk-bg;
+  margin-bottom: 15px;
+  font-size:16px;
+  >input {
+    width: 150px;
+  }
+  label{
+    line-height: 34px;
+    margin-left:20px;
+  }
+  .form-time {
+    width: 110px;
+  }
+  .query-btn {
+    background:$btn-action-bg;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left:35px;
+    cursor: pointer;
+  }
+}
+//数据表格
+.red,.green,.edit{
+  padding: 0 5px;
+  cursor: pointer;
+}
+.red {
+  color: $red;
+}
+.green {
+  color: $green;
+}
+.edit{
+  color:$btn-action-bg;
+}
+.table {
+  border: 1px solid #ededed;
+  td {
+    border: 1px solid #ededed;
+    padding:12px 10px;
+    line-height:1.4;
+    text-align: center;
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    &.sort em {
+      color: #333;
+      font-size: 14px;
+      background: #f8f8f8;
+      padding:5px 20px;
+      border: 1px solid #e9e9e9;
+      border-radius: 3px;
+    }
+    &.table-del {
+      text-align: left;
+      padding: 6px 10px;
+      em {
+        color: #fff;
+        background: $btn-del-bg;
+        display: inline-block;
+        width: 100px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        padding: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  .tal{
+    text-align: left;
+  }
+  th {
+    background: #edf1f2;
+    font-size: 16px;
+    padding: 6px 10px;
+    font-weight: normal;
+    border: 1px solid #ededed;
+  }
+}
+//分页
+.page {
+  $w30:30px;
+  margin-top: 24px;
+  height: $w30;
+  line-height: $w30;
+  a {
+    display: inline-block;
+    margin-right: 5px;
+    width: $w30;
+    height:$w30;
+    border-radius:$w30;
+    text-align: center;
+    background:$btn-bg;
+    color: #fff;
+    &:hover,&.page-cur {
+      background:$btn-action-bg;
+    }
+    &.pre,&.next {
+      border-radius: 5px;
+    }
+  }
+  select {
+    padding: 4px;
+  }
+}
+

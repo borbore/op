@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ReplyRobot> 
+  <robotAccount> 
+    <!--
+        lincence中有配置最多启动的数量，超过数量的机器人将不会被启动
+    -->  
+    <robot> 
+      <!--jid, password 是必填项， servername, serverport, presenceStatus可以缺省  -->  
+      <jid>admin@ruan-pc</jid>  
+      <password>admin</password>
+      <servername>localhost</servername>
+	  <serverport>5222</serverport>
+    </robot> 
+    <robot> 
+      <!--jid, password 是必填项， servername, serverport, presenceStatus可以缺省  -->  
+      <jid>test@ruan-pc</jid>  
+      <password>test</password>
+      <servername>localhost</servername>
+	  <serverport>5222</serverport>
+    </robot>
+  </robotAccount>
+  <!-- 配置用户自定义的类，用来取得终端用户请求的结果 -->
+  <remoteService> 
+    <!--基于mediaWiki的实现  -->
+    <classname>com.suneee.core.userdefine.RemoteServiceMediaWiKiImpl</classname>  
+    <params> 
+      <url>http://wiki.jabbercn.org/api.php?action=query&amp;list=search&amp;srwhat=text&amp;srsearch=%s&amp;format=json</url>  
+      <hrefUrl>http://wiki.jabbercn.org/</hrefUrl> 
+    </params> 
+    <!--基于Rest的实现
+  	   它是POST请求，参数是json串
+        {
+         "from": "终端用户JID",
+          "to": "机器人JID",
+          "value": "终端用户的问题"
+        }
+        它需要返回的格式也是json串，status为200，表示正常的请求，htmlFormatResultSet, commonFormatResultSet值为正常的结果集，
+       robot会直接转给终端用户(前者是html格式的，后者是普通字符串格式，二者可同时有值，也允许单个参数有值)。
+        当status不为200， robot不会将其值转给终端用户，会用robot自已定义的异常提示进行代替。
+       {
+         "status": 200,http://ruan-pc:8081/servlet/friendListServlet
+         http://172.19.6.104:8080/im_assistant/admin/api/sendMessage_test
+        }-->
+    <classname_c>com.suneee.core.userdefine.RemoteServiceRestImpl</classname_c>  
+    <params_c>
+      <url>http://116.10.197.134:8070/yncrm/im_request</url>  
+      <hrefUrl>http://172.19.6.104:8080/im_assistant/</hrefUrl> 
+    </params_c> 
+  </remoteService>  
+  <contact>
+    <!--配置Robot好友参数，其值为accept_all, reject_all , manual
+         当值为accept_all时，自动接受所有用户的加好友请求
+         当值为reject_all时，自动拒绝所有用户的加好友请求
+         当值为manual时，需要调用相应的接口来确认接受或者拒绝终端用户的好友请求
+    -->
+    <subscriptionMode>accept_all</subscriptionMode> 
+  </contact>
+  <!-- HTTP接口验证码 --> 
+  <vCode>1112121</vCode>
+  <!-- 机器vz-vps-4-172.19.6.104-suneeedev助手--> 
+  <servername>ruan-pc</servername>
+  <serverport>5222</serverport>
+</ReplyRobot>

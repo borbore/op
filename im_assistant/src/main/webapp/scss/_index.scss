@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+.index-con {
+  .user {
+    padding: 70px 0 50px;
+    position: relative;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px #fff solid;
+      overflow: hidden;
+      margin-right: 8px;
+      position: relative;
+      z-index: 9;
+    }
+    span {
+      position: absolute;
+      z-index: 1;
+      left: 72px;
+      top: 95px;
+      background: #fff;
+      border-radius: 45px;
+      font-weight: normal;
+      padding: 8px 30px 8px 50px;
+      text-align: left;
+      display: block;
+      em {
+        display: block;
+        color: #b8b8b8;
+        font-size: 14px;
+        padding: 3px 0 0;
+      }
+    }
+  }
+  .in-num {
+    $width:62px;
+    $height:62px;
+    margin-bottom: 50px;
+    li {
+      float: left;
+      width: 235px;
+      height: 90px;
+      border-radius: 3px;
+      margin: 0 30px 0 0;
+      background: #fff;
+      padding: 10px 0 0 24px;
+      box-sizing: border-box;
+      color: #999;
+      font-size: 14px;
+      b {
+        color: #333 ;
+        font-size: 36px;
+        display: block;
+        font-weight: normal;
+      }
+      span {
+        background: url("../images/icon.png") no-repeat;
+        width: $width;
+        height:$height;
+        float: left;
+        margin-right: 8px;
+      }
+      &:nth-of-type(1) span {
+        background-position: 0 0;
+      }
+      &:nth-of-type(2) span {
+        background-position: -($width * 1) 0;
+      }
+      &:nth-of-type(3) span {
+        background-position: -($width * 2) 0;
+      }
+      &:nth-of-type(4) span {
+        background-position: -($width * 3) 0;
+      }
+    }
+  }
+  .data-chart {
+    background: #fff;
+    padding: 20px 10px;
+    overflow: hidden;
+    h1 {
+      font-weight: normal;
+      font-size: 20px;
+      padding: 0 0 8px 10px;
+    }
+  }
+}
+
+

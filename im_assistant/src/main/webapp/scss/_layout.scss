@@ -1,0 +1,155 @@
+@charset "utf-8";
+/**系统菜单**/
+.menu {
+  width: 240px;
+  background: #262a33;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  overflow: auto;
+}
+  /*logo*/
+  .logo {
+    padding: 20px 0 35px 20px;
+    font-weight: normal;
+    img {
+      float: left;
+      width: 60px;
+      padding-right: 8px;
+    }
+    span {
+      float: left;
+      color: #fff;
+      font-size: 20px;
+    }
+    b {
+      display: block;
+    }
+  }
+  /*左侧导航*/
+  .menu-list {
+    li {
+      border-bottom: 1px #30343e solid;
+      text-align: right;
+      a {
+        display: block;
+        color: #fff;
+        line-height: 56px;
+        font-size: 16px;
+        padding-right: 30px;
+      }
+      &.curr a, a:hover {
+        background: #00b6c1;
+        color: #fff;
+      }
+      .lever {
+        display: block;
+        background: #3a3f4a;
+        a {
+          display: block;
+          height: 46px;
+          line-height: 46px;
+          font-size: 14px;
+          color: #fff;
+          &:hover {
+            background: #494e59
+          }
+        }
+      }
+      &.curr .lever a {
+        background: none;
+        border: none;
+        padding-left: 60px;
+        font-weight: normal;
+        &.curr1 {
+          background: #494e59;
+        }
+      }
+    }
+  }
+/*左侧底部*/
+.left-set {
+  position: absolute;
+  bottom: 0;
+  background: #131519;
+  padding: 0 10px;
+  width: 100%;
+  height: 54px;
+  box-sizing: border-box;
+  .user-list{
+    position: absolute;
+    left: 0px;
+    bottom: 65px;
+    width: 240px;
+    background: #1c1e24;
+    height: 50px;
+    display: none;
+    li{
+      width:50%;
+      padding: 0;
+      float: left;
+      line-height: 50px;
+      text-align: center;
+      font-size: 16px;
+    }
+    a{
+      color:#fff;
+    }
+  }
+  .quit {
+    background: url("../images/close.png") no-repeat center;
+    width: 50px;
+    height: 100%;
+  }
+
+  .set {
+    background: url("../images/set.png") no-repeat center;
+    width: 50px;
+    height: 100%;
+  }
+  .cur-bg{
+    background-color: #1c1e24;
+    position: relative;
+    &:after{
+      $w:10px;
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 10px;
+      right:15px;
+      top:-15px;
+      border-left: $w solid transparent;
+      border-right: $w solid transparent;
+      border-top: $w solid #1c1e24;
+    }
+  }
+  .user {
+    background: url("../images/admin.png") left center no-repeat;
+    padding-left: 28px;
+    color: #fff;
+    height: 100%;
+    line-height: 54px;
+    font-size: 20px;
+  }
+}
+/**内容框架**/
+.main_box {
+  position: absolute;
+  top: 0;
+  left: 240px;
+  right: 0;
+  height: 100%;
+  z-index: 1;
+  background: $bulk-bg;
+}
+.main {
+  width: 100%;
+  min-width: 760px;
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  padding: 20px 30px;
+}

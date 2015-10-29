@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- typeAliases 要放在mappers 之前 -->
+	<mappers>
+		<mapper resource="com/suneee/project/dao/mybatis/UserMapper.xml" />
+		<mapper resource="com/suneee/project/dao/mybatis/AccountMapper.xml" />
+ 	</mappers>
+</configuration> 

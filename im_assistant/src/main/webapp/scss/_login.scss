@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/*登录页面*/
+.login_container{width: 100%; height: 100%; background:#00b6c1 url(../images/login_bg.jpg) no-repeat center top; background-size: cover;}
+.login_box .login_logo{ padding:60px 0 110px 160px; font-size:32px; color: #fff; }
+.login_logo img { vertical-align: middle; margin-right: 12px; width: 40px; height: 36px;}
+.login_info_bd{ width: 80%; margin: 0 auto; }
+.login_info_bd .info{ width: 410px; float: right;}
+.login_info_bd .info h3 { color: #fff; font-size: 24px; margin-bottom:14px; font-weight: normal; }
+.info_list { width: 334px; background: #fff; border-radius: 10px; }
+.info_list li { position: relative; height: 58px; line-height: 58px; border-bottom: 1px solid #d9d9d9; padding-left:15px; position: relative; }
+.info_list li i { position: absolute; top: 8px; left: -200px; border-radius:5px; box-shadow: -3px 3px 8px #999; height: 60px; line-height: 60px; background: #fff3cb; color: #d82f2f; font-size: 16px; padding: 0 18px; font-style: normal;}
+.info_list li i:before{ position: absolute; content: ""; right: -8px; top: 16px; border-left: 10px solid #fff3cb; border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+.info_list li input { border: none; padding-left:28px; background: none; font-size: 16px; width: 206px;}
+.info_list .usn  {background: url(../images/icon1.gif) no-repeat 15px center;}
+.info_list .psd{background: url(../images/icon2.gif) no-repeat 15px center; }
+.info_list .yzm{background: url(../images/yzm.gif) no-repeat 15px center; border-bottom: none;}
+.member { height: 35px; line-height: 35px; color: #fff; width: 334px; margin-bottom: 8px; }
+.member a { float: right; color: #fff; text-decoration: underline}
+.member input { background: none; border: none; vertical-align: middle; margin-right: 4px;}
+.yzm img { vertical-align: middle;}
+.info_btn .login_btn { text-shadow: 2px 2px 2px #999; border: none; color: #fff; width: 334px; height: 52px; background: #83d324; border-radius: 5px; font-size: 20px; }
+

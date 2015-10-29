@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+
+.checkboxFour{
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  &.service {
+    width:auto;
+  }
+}
+
+.checkboxFour label {
+  pointer-events: none;
+  z-index: 1;
+  display: block;
+  width: 22px;
+  height: 22px;
+  top:0;
+  left:0;
+  position: absolute;
+  border:#e9e9e9 solid 1px;
+  border-radius: 2px;
+  background: #f8f8f8;
+  transition: background-color 20ms ease-in-out;
+}
+.checkboxFour input{
+  display: block;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  position: absolute;
+  left:0;
+  top:0;
+  cursor: pointer;
+}
+
+.checkboxFour input[type=checkbox]:checked + label {
+  background: $btn-action-bg url("../images/icon/icon_cur.png") no-repeat center;
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: none;
+}
+.checkboxFour em {
+  display: block;
+  min-width: 40px;
+  height: 24px;
+  line-height: 24px;
+  padding:0 22px 0 28px;
+  color: #666;
+  font-size: 16px;
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	default-autowire="byName" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	   http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	
+	<context:component-scan base-package="com.suneee">           
+	 <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+ 	<tx:annotation-driven transaction-manager="transactionManager" />
+ 	
+	<bean id="propertyCfg" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+				<value>classpath:redis.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="propsLoader" class="com.suneee.base.util.PropertiesUtil">
+		<constructor-arg index="0">
+		    <list>
+				<value>config.properties</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${dataSource.driverClassName}" />
+		<property name="jdbcUrl" value="${dataSource.url}" />
+		<property name="user" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="initialPoolSize" value="5"/>
+		<property name="maxStatements" value="0"/>
+		<property name="maxPoolSize" value="25"/>
+		<property name="maxIdleTime" value="60"/>
+		<property name="debugUnreturnedConnectionStackTraces" value="true"/>
+		<property name="preferredTestQuery" value="select 1 from dual"/>
+		<property name="idleConnectionTestPeriod" value="60"/>
+	</bean>
+	
+	<!-- jdbc注入 -->  
+    <bean id="jdbcTemplate"  
+        class="org.springframework.jdbc.core.JdbcTemplate">  
+        <property name="dataSource">  
+            <ref bean="dataSource" />  
+        </property>  
+    </bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+	<bean id="mysqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property> 
+	</bean>
+	<bean id="sqlSessionTemplateSimple" class="org.mybatis.spring.SqlSessionTemplate">     
+		<constructor-arg index="0" ref="mysqlSessionFactory" />  
+		<!--更新采用单个模式 -->  
+		<constructor-arg index="1" value="SIMPLE"/>  
+	</bean>  
+	<bean id="sqlSessionTemplateBatch" class="org.mybatis.spring.SqlSessionTemplate">     
+		<constructor-arg index="0" ref="mysqlSessionFactory" />  
+		<!--更新采用批量模式 -->  
+		<constructor-arg index="1" value="BATCH"/>  
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+   		 <property name="basePackage" value="com.suneee.*.dao.mybatis" /> <!-- 扫描器开始扫描的基础包名，支持嵌套扫描；  -->
+   		 <property name="sqlSessionFactoryBeanName" value="mysqlSessionFactory" />  
+   		 <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplateBatch" />  <!-- 模板bean的名称； -->
+   		<!--  基于接口的过滤器，实现了该接口的dao才会被扫描器扫描，与basePackage是与的作用。 -->
+   		 <property name="markerInterface" value="com.suneee.*.dao.mybatis.BatchDao" />  
+   		 <!-- 配置了该注解的dao才会被扫描器扫描，与basePackage是与的作用 需要注意的是，两个过滤条件只能配一个。 -->
+   		 <property name="annotationClass" value="com.suneee.*.dao.mybatis.BatchAnnotation" />
+	</bean>  
+	
+	
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxActive" value="${redis.maxActive}" />
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<property name="maxWait" value="${redis.maxWait}" />
+		<property name="testOnBorrow" value="${redis.testOnBorrow}" />
+	</bean>
+	<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool"
+		scope="singleton">
+		<constructor-arg index="0" ref="jedisPoolConfig" />
+		<constructor-arg index="1">
+			<list>
+				<bean class="redis.clients.jedis.JedisShardInfo">
+					<constructor-arg name="host" value="${redis.host}" />
+					<constructor-arg name="port" value="${redis.port}" />
+					<constructor-arg name="timeout" value="${redis.timeout}" />
+					<constructor-arg name="weight" value="${redis.weight}" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+ 	<!-- 定时任务 -->
+    <bean id="imJob" class="com.suneee.core.task.ImJob"/>
+	<task:scheduled-tasks>
+ 		<task:scheduled ref="imJob" method="checkIm" cron="0 0/1 * * * ?"/>
+ 	</task:scheduled-tasks>
+    
+</beans>
