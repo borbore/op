@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+    <!-- Main plugin class -->
+    <class>com.suneee.openfire.plugin.SuneeeMucMgrPlugin</class>
+    
+    <!-- Plugin meta-data -->
+    <name>Suneee Muc Manager Service</name>
+    <description>Suneee Muc Manager Service</description>
+    <author>hexuan@suneee.com</author>
+    <version>1.0.0</version>
+    <date>11/10/2014</date>
+    <minServerVersion>3.9.1</minServerVersion>
+
+</plugin>

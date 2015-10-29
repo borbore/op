@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Plugin configuration for the broadcast plugin.
+-->
+<plugin>
+    <class>com.suneee.openfire.plugin.InterceptIosPlugin</class>
+    <name>InterceptIosPlugin</name>
+    <description>ios离线用户消息推送.</description>
+    <author>rcj</author>
+    <version>1.0.0</version>
+    <date>10/13/2015</date>
+    <url>http://www.igniterealtime.org</url>
+    <minServerVersion>3.9.1</minServerVersion>
+</plugin>
